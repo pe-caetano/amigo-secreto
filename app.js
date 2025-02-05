@@ -15,7 +15,7 @@ function adicionarAmigo() {
     }
 
     listaDeAmigos.push(nomeAmigo);
-    listarNomeInserido(nomeAmigo);
+    listarNomeInserido();
     limparCampo();
 
 }
@@ -36,9 +36,15 @@ function sortearAmigo() {
 
 }
 
-function listarNomeInserido(nome) {
+function listarNomeInserido() {    
     let listaAmigos = document.getElementById('listaAmigos');
-    listaAmigos.innerHTML += `<li>${nome}</li>`;
+    listaAmigos.innerHTML = '';
+
+    for (let i = 0; i < listaDeAmigos.length; i++) {
+        let item = document.createElement('li');
+        item.textContent = listaDeAmigos[i];
+        listaAmigos.appendChild(item);
+    }
 }
 
 function limparCampo() {
